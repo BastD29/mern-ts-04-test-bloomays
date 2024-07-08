@@ -1,57 +1,19 @@
 // import { Request, Response } from "express";
 // import Mission from "../models/missionModel";
-// import {
-//   IMission,
-//   MissionData,
-//   MissionQuery,
-//   MissionRecords,
-// } from "../types/mission";
+// import { buildDateQuery, processMissions } from "../utils/utils";
 
 // const getMissions = async (req: Request, res: Response) => {
 //   try {
 //     const { beginDate, endDate } = req.query;
 //     console.log("req.query:", req.query);
+//     console.log("beginDate:", beginDate);
+//     console.log("endDate:", endDate);
 
-//     const query: MissionQuery = {};
+//     const query = buildDateQuery(beginDate as string, endDate as string);
 //     console.log("query:", query);
 
-//     if (beginDate) {
-//       query.beginDate = { $gte: beginDate as string };
-//     }
-
-//     if (endDate) {
-//       query.endDate = { $lte: endDate as string };
-//     }
-
 //     const missions = await Mission.find(query);
-//     // console.log("missions:", missions);
-
-//     const arriving: MissionRecords = {};
-//     const leaving: MissionRecords = {};
-
-//     missions.forEach((mission: IMission) => {
-//       const begin = mission.beginDate;
-//       const end = mission.endDate;
-//       const missionData: MissionData = {
-//         firstname: mission.freelance.firstname,
-//         lastname: mission.freelance.lastname,
-//         beginMission: mission.beginDate,
-//         endMission: mission.endDate,
-//         id: mission._id.toString(),
-//       };
-
-//       console.log("missionData:", missionData);
-
-//       if (!arriving[begin]) {
-//         arriving[begin] = [];
-//       }
-//       arriving[begin].push(missionData);
-
-//       if (!leaving[end]) {
-//         leaving[end] = [];
-//       }
-//       leaving[end].push(missionData);
-//     });
+//     const { arriving, leaving } = processMissions(missions);
 
 //     res.status(200).json({ arriving, leaving });
 //   } catch (error) {

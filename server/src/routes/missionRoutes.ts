@@ -1,14 +1,9 @@
 import express from "express";
-import {
-  createMission,
-  //   createMissions,
-  getMissions,
-} from "../controllers/missionController2";
+import { createMission, getMissions } from "../controllers/missionController5";
 
 const router = express.Router();
 
 router.get("/", getMissions);
 router.post("/", createMission);
-// router.post("/", createMissions);
 
 export default router;

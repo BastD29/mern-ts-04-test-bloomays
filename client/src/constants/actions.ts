@@ -1,0 +1,3 @@
+const SET_MISSIONS = "SET_MISSIONS";
+
+export { SET_MISSIONS };

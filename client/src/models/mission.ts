@@ -4,11 +4,11 @@ type MissionType = {
   beginDate: string;
   endDate: string;
   missionType: string;
-  freelance: Freelance;
+  freelance: FreelanceType;
 };
 
-type Freelance = {
-  id: string;
+type FreelanceType = {
+  _id: string;
   firstname: string;
   lastname: string;
   email: string;

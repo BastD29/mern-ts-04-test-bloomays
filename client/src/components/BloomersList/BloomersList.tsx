@@ -3,7 +3,7 @@ import { useMissionContext } from "../../hooks/useMissionContext";
 import { BloomerType } from "../../models/bloomer";
 import { getMissions } from "../../services/missions";
 import { SET_MISSIONS } from "../../constants/actions";
-import { transformData } from "../../utils/transformData";
+import { transformData } from "../../utils/transformData2";
 import style from "./BloomersList.module.scss";
 
 const BloomersList: FC = () => {
@@ -17,10 +17,7 @@ const BloomersList: FC = () => {
     null
   );
 
-  const {
-    // state: { missions },
-    dispatch,
-  } = useMissionContext();
+  const { dispatch } = useMissionContext();
 
   useEffect(() => {
     const fetchMissions = async () => {
@@ -32,7 +29,11 @@ const BloomersList: FC = () => {
 
         if (response) {
           dispatch({ type: SET_MISSIONS, payload: response });
+          // const filteredMissions: MissionType[] = filterDates(response);
+          console.log("response:", response);
+
           const { arriving, leaving } = transformData(response);
+          // const { arriving, leaving } = transformData(filteredMissions);
           console.log("arriving:", arriving);
           console.log("leaving:", leaving);
 

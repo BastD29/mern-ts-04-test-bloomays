@@ -1,0 +1,9 @@
+.bloomers-list {
+  &__arriving,
+  &__leaving {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+}

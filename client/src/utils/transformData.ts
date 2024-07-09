@@ -10,7 +10,7 @@ const transformData = (
   const arriving: Record<string, BloomerType[]> = {};
   const leaving: Record<string, BloomerType[]> = {};
 
-  console.log("missions:", missions);
+  // console.log("missions:", missions);
 
   missions.forEach((mission) => {
     const arrivalDate = mission.beginDate;

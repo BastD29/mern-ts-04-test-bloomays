@@ -1,0 +1,68 @@
+[
+  {
+    "label": "Mission 1",
+    "beginDate": "2024-07-09",
+    "endDate": "2025-07-09",
+    "missionType": "mid",
+    "freelance": {
+      "firstname": "James",
+      "lastname": "McGill",
+      "email": "jamesmcgill@mail.com"
+    }
+  },
+  {
+    "label": "Mission 2",
+    "beginDate": "2024-07-09",
+    "endDate": "2025-07-09",
+    "missionType": "mid",
+    "freelance": {
+      "firstname": "John",
+      "lastname": "Doe",
+      "email": "johndoe@mail.com"
+    }
+  },
+  {
+    "label": "Mission 3",
+    "beginDate": "2024-10-03",
+    "endDate": "2025-10-03",
+    "missionType": "short",
+    "freelance": {
+      "firstname": "Jane",
+      "lastname": "McCourt",
+      "email": "janemccourt@mail.com"
+    }
+  },
+  {
+    "label": "Mission 4",
+    "beginDate": "2023-07-09",
+    "endDate": "2024-07-09",
+    "missionType": "long",
+    "freelance": {
+      "firstname": "Frank",
+      "lastname": "Douglas",
+      "email": "frankdouglas@mail.com"
+    }
+  },
+  {
+    "label": "Mission 5",
+    "beginDate": "2023-08-09",
+    "endDate": "2024-08-09",
+    "missionType": "long",
+    "freelance": {
+      "firstname": "Meryl",
+      "lastname": "Streep",
+      "email": "merylstreep@mail.com"
+    }
+  },
+  {
+    "label": "Mission 6",
+    "beginDate": "2023-10-03",
+    "endDate": "2024-10-03",
+    "missionType": "long",
+    "freelance": {
+      "firstname": "Jack",
+      "lastname": "Dalton",
+      "email": "jackdalton@mail.com"
+    }
+  }
+]

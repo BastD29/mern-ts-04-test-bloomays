@@ -61,37 +61,39 @@ const BloomersList: FC = () => {
 
   return (
     <div className={style["bloomers-list"]}>
-      <h2>Arriving bloomers</h2>
-      {arriving &&
-        Object.entries(arriving).map(([date, bloomers]) => (
-          <div key={date}>
-            <h2>{date}</h2>
-            <ul>
-              {bloomers.map((bloomer) => (
-                <li key={bloomer.id}>
-                  {bloomer.firstname} {bloomer.lastname}
-                  {/* Start date:{bloomer.beginMission} */}
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
+      <div className={style["bloomers-list__arriving"]}>
+        <h2>Arriving bloomers</h2>
+        {arriving &&
+          Object.entries(arriving).map(([date, bloomers]) => (
+            <div key={date}>
+              <h2>{date}</h2>
+              <ul>
+                {bloomers.map((bloomer) => (
+                  <li key={bloomer.id}>
+                    {bloomer.firstname} {bloomer.lastname}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+      </div>
 
-      <h2>Leaving bloomers</h2>
-      {leaving &&
-        Object.entries(leaving).map(([date, bloomers]) => (
-          <div key={date}>
-            <h2>{date}</h2>
-            <ul>
-              {bloomers.map((bloomer) => (
-                <li key={bloomer.id}>
-                  {bloomer.firstname} {bloomer.lastname}
-                  {/* {bloomer.beginMission} to {bloomer.endMission} */}
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
+      <div className={style["bloomers-list__leaving"]}>
+        <h2>Leaving bloomers</h2>
+        {leaving &&
+          Object.entries(leaving).map(([date, bloomers]) => (
+            <div key={date}>
+              <h2>{date}</h2>
+              <ul>
+                {bloomers.map((bloomer) => (
+                  <li key={bloomer.id}>
+                    {bloomer.firstname} {bloomer.lastname}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+      </div>
     </div>
   );
 };

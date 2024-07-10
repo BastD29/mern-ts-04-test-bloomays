@@ -7,7 +7,7 @@ const getMissions = async () => {
       throw new Error("Failed to fetch users");
     }
     const data = await response.json();
-    console.log("data from mission service:", data);
+    // console.log("data from mission service:", data);
     return data;
   } catch (error) {
     console.error("Error fetching missions:", error);

@@ -40,7 +40,7 @@ const transformData = (
       arrivalDate >= normalizedToday &&
       arrivalDate <= normalizedEndOfNextMonth
     ) {
-      console.log("arrivalDateString:", arrivalDate);
+      // console.log("arrivalDateString:", arrivalDate);
       addBloomerToRecord(arriving, arrivalDate, bloomer);
     }
 
@@ -48,7 +48,7 @@ const transformData = (
       departureDate >= normalizedToday &&
       departureDate <= normalizedEndOfNextMonth
     ) {
-      console.log("departureDateString:", departureDate);
+      // console.log("departureDateString:", departureDate);
       addBloomerToRecord(leaving, departureDate, bloomer);
     }
   });

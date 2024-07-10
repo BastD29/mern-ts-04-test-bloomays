@@ -25,17 +25,14 @@ const BloomersList: FC = () => {
 
       try {
         const response = await getMissions();
-        console.log("response:", response);
+        // console.log("response:", response);
 
         if (response) {
           dispatch({ type: SET_MISSIONS, payload: response });
-          // const filteredMissions: MissionType[] = filterDates(response);
-          console.log("response:", response);
-
+          // console.log("response:", response);
           const { arriving, leaving } = transformData(response);
-          // const { arriving, leaving } = transformData(filteredMissions);
-          console.log("arriving:", arriving);
-          console.log("leaving:", leaving);
+          // console.log("arriving:", arriving);
+          // console.log("leaving:", leaving);
 
           setArriving(arriving);
           setLeaving(leaving);

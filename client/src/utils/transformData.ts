@@ -1,42 +1,62 @@
-// import { BloomerType } from "../models/bloomer";
-// import { MissionType } from "../models/mission";
+import { BloomerType } from "../models/bloomer";
+import { MissionType } from "../models/mission";
+import { addBloomerToRecord } from "./addBloomerToRecord";
+import { createBloomer } from "./createBloomer";
+import { normalizeDate } from "./normalizeDate";
 
-// const transformData = (
-//   missions: MissionType[]
-// ): {
-//   arriving: Record<string, BloomerType[]>;
-//   leaving: Record<string, BloomerType[]>;
-// } => {
-//   const arriving: Record<string, BloomerType[]> = {};
-//   const leaving: Record<string, BloomerType[]> = {};
+const transformData = (
+  missions: MissionType[]
+): {
+  arriving: Record<string, BloomerType[]>;
+  leaving: Record<string, BloomerType[]>;
+} => {
+  const arriving: Record<string, BloomerType[]> = {};
+  const leaving: Record<string, BloomerType[]> = {};
 
-//   // console.log("missions:", missions);
+  const today = new Date();
+  const endOfNextMonth = new Date(
+    today.getUTCFullYear(),
+    today.getUTCMonth() + 2,
+    0
+  );
 
-//   missions.forEach((mission) => {
-//     const arrivalDate = mission.beginDate;
-//     const departureDate = mission.endDate;
+  const normalizedToday = normalizeDate(today.toISOString());
+  const normalizedEndOfNextMonth = normalizeDate(endOfNextMonth.toISOString());
 
-//     const bloomer: BloomerType = {
-//       firstname: mission.freelance.firstname,
-//       lastname: mission.freelance.lastname,
-//       beginMission: mission.beginDate,
-//       endMission: mission.endDate,
-//       id: mission.freelance._id,
-//     };
-//     console.log("bloomer:", bloomer);
+  // console.log("Normalized Today:", normalizedToday);
+  // console.log("Normalized End of Next Month:", normalizedEndOfNextMonth);
 
-//     if (!arriving[arrivalDate]) {
-//       arriving[arrivalDate] = [];
-//     }
-//     arriving[arrivalDate].push(bloomer);
+  missions.forEach((mission) => {
+    const arrivalDate = normalizeDate(mission.beginDate);
+    const departureDate = normalizeDate(mission.endDate);
 
-//     if (!leaving[departureDate]) {
-//       leaving[departureDate] = [];
-//     }
-//     leaving[departureDate].push(bloomer);
-//   });
+    // console.log("Processing mission:", mission.label);
+    // console.log("Normalized Arrival Date:", arrivalDate);
+    // console.log("Normalized Departure Date:", departureDate);
 
-//   return { arriving, leaving };
-// };
+    const bloomer = createBloomer(mission);
 
-// export { transformData };
+    if (
+      arrivalDate >= normalizedToday &&
+      arrivalDate <= normalizedEndOfNextMonth
+    ) {
+      // console.log("arrivalDateString:", arrivalDate);
+      addBloomerToRecord(arriving, arrivalDate, bloomer);
+    }
+
+    if (
+      departureDate >= normalizedToday &&
+      departureDate <= normalizedEndOfNextMonth
+    ) {
+      // console.log("departureDateString:", departureDate);
+      addBloomerToRecord(leaving, departureDate, bloomer);
+    }
+  });
+
+  // console.log("Arriving bloomers:", arriving);
+  // console.log("Leaving bloomers:", leaving);
+
+  return { arriving, leaving };
+};
+
+export { transformData };

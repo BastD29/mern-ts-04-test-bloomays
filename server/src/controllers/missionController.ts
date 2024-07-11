@@ -10,6 +10,7 @@ const getMissions = async (req: Request, res: Response) => {
   }
 };
 
+// only for Postman testing purpose
 const createMission = async (req: Request, res: Response) => {
   try {
     const { label, beginDate, endDate, missionType, freelance } = req.body;
@@ -33,19 +34,4 @@ const createMission = async (req: Request, res: Response) => {
   }
 };
 
-// const createMissions = async (req: Request, res: Response) => {
-//   const missions = req.body.missions;
-//   console.log("missions:", missions);
-
-//   if (!missions || !Array.isArray(missions)) {
-//     return res.status(400).json({ error: "Invalid missions data." });
-//   }
-//   try {
-//     const newMissions = await Mission.insertMany(missions);
-//     res.status(201).json(newMissions);
-//   } catch (error) {
-//     res.status(500).json({ error: "Error creating missions." });
-//   }
-// };
-
-export { getMissions, createMission /* createMissions */ };
+export { getMissions, createMission };

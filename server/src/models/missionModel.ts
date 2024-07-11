@@ -1,5 +1,5 @@
 import { Schema, model } from "mongoose";
-import { IFreelance, IMission /* IMissionModel */ } from "../types/mission";
+import { IFreelance, IMission } from "../types/mission";
 
 const freelanceSchema = new Schema<IFreelance>({
   firstname: { type: String, required: [true, "Please add a first name"] },

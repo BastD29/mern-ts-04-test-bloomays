@@ -14,20 +14,3 @@ export interface IFreelance extends Document {
   lastname: string;
   email: string;
 }
-
-export interface MissionQuery {
-  beginDate?: { $gte: string };
-  endDate?: { $lte: string };
-}
-
-export interface MissionData {
-  firstname: string;
-  lastname: string;
-  beginMission: string;
-  endMission: string;
-  id: string;
-}
-
-export interface MissionRecords {
-  [date: string]: MissionData[];
-}
